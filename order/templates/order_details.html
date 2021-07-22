@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} pricing - algoeason {% endblock %} {% block content%}
+<script>
+</script>
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0 align_center color_primary_default_text">
+    <div class="container-fluid">
+
+        <h1>Order Details</h1>
+
+        <div class="order_details_box">
+
+            <div style="width: 100%; padding:10px">
+                <p style="font-size:20px">AlgoSeason Course</p>
+                <p style="text-align: center; font-size:16px;"> Amount:{{course_price}}/-</p>
+            </div>
+
+
+
+
+            <br>
+
+            </ul>
+            <a class="btn bg_color_secondary" href="{% url 'order:purchase' %}">Purchase</a>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} Syllabus Content - algoeason {% endblock %} {% block content%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<div class="jumbotron jumbotron-fluid mb-0 bg_color_primary color_primary_default_text">
+    <!-- <p class="heading_text align_center">{{subCategory.name}}</p> -->
+    <div style=" padding-bottom: 10px;">
+        <div class="container-fluid" style="padding:0;">
+            <div>
+
+                <!-- Vidoe or text container start -->
+                {% if selectedContent.syllabus_type.name == 'video' %}
+                <div class="syllabus-video-container align_center">
+                    <figure id="video_player">
+                        <video controls controlsList="nodownload" class="syllabus_video">
+                    <source src="{{selectedContent.video_file.url}}" type="video/mp4 ">
+                    <source src="mov_bbb.ogg" type="video/ogg ">
+                    Your browser does not support HTML video.
+                  </video>
+                    </figure>
+                </div>
+                {% elif selectedContent.syllabus_type.name == 'text' or selectedContent.syllabus_type.name == 'code' %}
+                <div class="syllabus-video-container">
+                    <!-- <p>helloasdfasfasfs</p> -->
+                    <!-- {% autoescape off %} {{ textFileContent |linebreaks }} {% endautoescape %} -->
+                    <p data-unselectable="unselectable content">{{textFileContent |safe | linebreaks}}</p>
+                </div>
+                {% endif %}
+                <!-- Vidoe container end -->
+
+
+
+                <div class="playlist-container-outer" style="border-left: 1px solid #232525; padding-left: 5px;">
+                    <div style="padding-bottom: 10px;">Playlist: <span style="color: #00caca; font-weight: bold;">{{subCategory.name}}</span></div>
+                    <div class="playlist-container">
+                        {% for lecture in allContents %}
+
+                        <div class="playlist-item"><i style="color: #00caca;" class="far fa-play-circle fa-1x"></i> <a href="{{subCategory.get_url}}/{{lecture.slug}}" class="{% if lecture == selectedContent %} color_secondary {% else %}color_primary_default_text{% endif %}">{{lecture.index}}. {{lecture.name}}</a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+            </div>
+            <hr> {% if selectedContent.syllabus_type.name == 'code' %}
+            <div class="" style="text-align: center;">
+                <form id="code-submit-form" method="POST">
+                    {% csrf_token %}
+                    <input type="file" id="myFile" name="filename">
+                    <button class="btn bg_color_secondary color_primary_default_text" id="code_submit" type="button">Submit</button>
+                </form>
+            </div>
+            {% endif %}
+            <p id="code_answer">d</p>
+            <div id="result-box" class="container-fluid" style="border:3px solid #7fd07f; padding: 20px;">
+
+                <div class="row">
+                </div>
+                <div class="overlay"></div>
+            </div>
+
+            <input id="syllabus-content" hidden value={{selectedContent}}>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#code_submit").click(function() {
+        console.log($('#myFile').get);
+        console.log("test");
+        // var formData = new FormData($('form').get(0))
+        var a_syllabus = '{{selectedContent}}'
+        var formData = new FormData();
+        formData.append('syllabus', '{{selectedContent.id}}')
+        formData.append('file', $('#myFile')[0].files[0])
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+        $.ajax({
+            url: '/compiler/',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            // dataType: 'application/json',
+
+            success: function(data) {
+                $(".row").html('');
+
+                for (var i = 0; i < data.data.testCaseResult.length; i++) {
+                    var status = data.data.status;
+                    var htm = '<div id="result-answer" class="col-lg-3 col-md-4 col-sm-6 col-xs-6' + (status == 0 ? ' wrong-answer color_danger' : ' correct-answer color_success') + '">' + data.data.testCaseResult[i] + '</div>';
+
+                    $(".row").append(htm);
+
+                }
+                console.log("success", data.data.status);
+                //   if (data.is_taken) {
+                //     alert("A user with this username already exists.");
+                //   }
+            }
+        });
+
+    });
+
+    $(document).on({
+        ajaxStart: function() {
+            $("body").addClass("loading");
+        },
+        ajaxStop: function() {
+            $("body").removeClass("loading");
+        }
+    });
+
+    var video_player = document.getElementById("video_player"),
+        links = video_player.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = handler;
+
+    }
+
+    function handler(e) {
+        console.log("working");
+        e.preventDefault();
+        videotarget = this.getAttribute("href");
+        filename = videotarget.substr(0, videotarget.lastIndexOf('.')) || videotarget;
+        console.log(videotarget, filename);
+        video = document.querySelector("#video_player video");
+        video.removeAttribute('poster');
+        source = document.querySelectorAll("#video_player video source");
+        source[0].src = videotarget;
+        video.load();
+        video.play();
+    }
+</script>
+
+
+{% endblock %}

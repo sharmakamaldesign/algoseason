@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} pricing - algoeason {% endblock %} {% block content%}
+
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0 align_center color_primary_default_text">
+    <div class="container-fluid">
+
+        <h2>Profile</h2>
+        <div class="container color_primary_default_text">
+
+            <table class="table color_primary_default_text" style="font-size:14px">
+
+                <tr>
+                    <th class="color_secondary">First Name</th>
+                    <td>{{user.first_name}}</td>
+                </tr>
+
+                <tr>
+                    <th class="color_secondary">Last Name</th>
+                    <td>{{user.last_name}}</td>
+                </tr>
+
+                <tr>
+                    <th class="color_secondary">E-mail Address</th>
+                    <td>{{user.email}}</td>
+                </tr>
+
+                <tr>
+                    <th class="color_secondary">Subscription</th>
+                    {% if user.user_profile.is_subscribed %}
+                    <td class="color_success bold">Subscribed</td>
+                    {% else %}
+                    <td class="color_danger bold">Not Subscribed</td>
+                    {% endif %}
+                </tr>
+
+
+
+            </table>
+
+
+        </div>
+
+
+
+
+    </div>
+    <a class="btn bg_color_secondary">Change Password</a> {% if not user.user_profile.is_subscribed %}
+    <a class="btn bg_color_success" href="{% url 'home:pricing' %}">Subscribe</a> {% endif %}
+</div>
+{% endblock %}

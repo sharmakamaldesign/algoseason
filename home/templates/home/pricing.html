@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} pricing - algoeason {% endblock %} {% block content%}
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0 align_center color_primary_default_text">
+    <div class="container-fluid">
+
+        <h1>Pricing</h1>
+
+        <div class="price_box">
+            <p style="font-size: 45px;">Rs 499/-</p>
+            <hr style="background-color: white;">
+            <p>AlgoSeason Course Details</p>
+            <ul style="list-style-type:none; text-align: left;">
+                <li>1 Year Access</li>
+                <li>30 Competitive Programming Questions. </li>
+                <li>Data Structure Crash Course.</li>
+                <li>All Questions Video Explanations.</li>
+                <li>All Questions Code solutions.</li>
+                <br>
+
+            </ul>
+            <div id="snackbar" style="background-color:#228b22;">Some text some message..</div>
+            {% if user.user_profile.is_subscribed %}
+            <p class="color_success bold">You are already subscribed user.</p>
+            {% else %}
+            <a class="btn bg_color_secondary" href="{% url 'order:order_details' %}">Purchase</a> {% endif %}
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

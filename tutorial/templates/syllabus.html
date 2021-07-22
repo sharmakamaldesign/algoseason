@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} Syllabus - algoeason {% endblock %} {% block content%}
+
+<div class="jumbotron jumbotron-fluid mb-0 bg_color_primary color_primary_default_text">
+    <p class="heading_text align_center">Syllabus</p>
+    <div style="border-bottom:1px solid #232525; padding-bottom: 10px;">
+        <div class="" style="padding:0; text-align: center;">
+            <!-- <h2>Show Collapsible Content By Default</h2>
+            <p>Add the show class next to the collapse class to show the content by default.</p>
+            <p>Click on the button to toggle between showing and hiding content.</p> -->
+            {% if user.user_profile.is_subscribed %} {% for category in syllabusCategories %}
+            <p class="bold mb-0 bg_color_secondary" style="padding:10px; cursor: pointer;  border-bottom:1px solid black" data-toggle="collapse" data-target='#{{category.slug}}'>{{category.index}}. {{category.name}}</p>
+            {% for subCategory in syllabusSubCategories %} {% if subCategory.category == category%}
+            <div id='{{category.slug}}' class="collapse show col-sm-4" style="display: inline-block; width: 450px;margin-top: 10px; margin-bottom: 10px;">
+                <div style="border: 1px solid #3e3e3e;padding: 20px 10px 20px 10px ; border-radius: 10px;">
+                    <a class="color_primary_default_text" href="{{subCategory.get_url}}/__all__">
+                        <div class="question_text ">
+                            {{subCategory.index}}. {{subCategory.name}}
+                        </div>
+                        <i class="fas fa-lock-open " style="color: green; "></i>
+                    </a>
+                </div>
+            </div>
+            {%endif%} {% endfor %} {% endfor %} {%else %} {% for category in syllabusCategories %}
+            <p class="bold mb-0 bg_color_secondary" style="padding:10px; cursor: pointer;  border-bottom:1px solid black" data-toggle="collapse" data-target='#{{category.slug}}'>{{category.index}}. {{category.name}}</p>
+            {% for subCategory in syllabusSubCategories %} {% if subCategory.category == category %}
+            <div id='{{category.slug}}' class="collapse show col-sm-4" style="display: inline-block; width: 450px;margin-top: 10px; margin-bottom: 10px;">
+                <div style="border: 1px solid #3e3e3e;padding: 20px 10px 20px 10px ; border-radius: 10px;" class="tooltip_manual">
+                    <a class="color_primary_default_text">
+                        <div class="question_text ">
+                            {{subCategory.index}}. {{subCategory.name}}
+                        </div>
+                        <i class="fas fa-lock" style="color: red;"></i>
+                    </a>
+                    <span class="tooltiptext ">Purchase AlgoSeason</span>
+                </div>
+            </div>
+            {%endif%} {% endfor %} {% endfor %} {%endif%}
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

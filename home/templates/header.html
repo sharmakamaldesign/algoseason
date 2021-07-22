@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-md navbar-light bg_color_primary">
+    <a class="navbar-brand color_primary_default_text" href="{% url 'home:home' %}">
+        <div>AlgoSeason</div>
+        <div class="align_center font_14 color_secondary">The CCA Club</div>
+    </a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+    <button style="position: fixed; right: 0px; color: white; background-color: white;" class="navbar-toggler" type="button" data-toggle="modal" data-target="#sidebarModal">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse color_primary_default_text" id="collapsibleNavbar">
+        <ul class="navbar-nav" style="font-size:15px;">
+
+            <li class="nav-item nav_item_style">
+                <a class="nav-link color_primary_default_text" href="{% url 'home:home' %}">What is AlgoSeason?</a>
+            </li>
+
+            <li class="nav-item nav_item_style">
+                <a class="nav-link color_primary_default_text" href="{% url 'tutorial:getSyllabusCategoryAndSubCategory' %}">Syllabus</a>
+            </li>
+
+            <li class="nav-item nav_item_style">
+                <a class="nav-link color_primary_default_text" href="{% url 'question:question_list' %}">Questions</a>
+            </li>
+
+
+            <li class="nav-item nav_item_style ">
+                <a class="nav-link color_primary_default_text" href="{% url 'home:pricing' %}">Pricing</a>
+            </li>
+
+            <li class="nav-item nav_item_style">
+                <a class="nav-link color_primary_default_text" href="{% url 'home:contact_us' %}">Contact Us</a>
+            </li>
+            {% if not user.is_authenticated %}
+            <li class="nav-item nav_item_style ">
+                <a class="nav-link color_primary_default_text" href="{% url 'authentication:login' %}">Login</a>
+            </li>
+
+
+            {% endif %} {% if user.is_authenticated %}
+            <li class="nav-item dropdown nav_item_style dropdown ">
+                <a class="nav-link dropdown-toggle color_primary_default_text cursor_pointer" id="navbardrop" data-toggle="dropdown">
+                Hi! {{ user.first_name }}
+              </a>
+                <div class="dropdown-menu bg_color_primary" style="border:1px solid white">
+                    <a class="dropdown-item cursor_pointer color_primary_default_text" href="{% url 'user_profile:user_profile' %}">Profile</a>
+                    <a class="dropdown-item cursor_pointer color_primary_default_text" href="{% url 'authentication:logout' %}">Logout</a>
+                </div>
+            </li>
+            {% endif %}
+
+            <li class="nav-item nav_item_style">
+
+                <a id="theme-changer-button" class="nav-link color_primary_default_text  cursor_pointer" onclick="themeSwap()"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="modal left fade menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+        <div class="modal-dialog position-fixed m-auto" role="document">
+            <div class="modal-content h-100 bg_color_primary">
+                <div class="modal-body p-0 ">
+                    <div class="nav flex-column">
+                        <div class=" " style="padding-bottom: 0px; ">
+                            {% if user.is_authenticated%}
+
+                            <div style="box-shadow: 1px 1px 1px 2px teal; padding:40px 10px 40px 10px;">
+                                <div style="width: 80%; display: inline-block; ">
+                                    <a data-dismiss="modal" class="nav-item nav-link color_primary_default_text " style="font-size: 25px; font-family: Arial, Helvetica, sans-serif; text-align: center;" href="#">Hi {{user.first_name}}!</a>
+                                    <p style="text-align: center;" class="color_secondary ">Welcome to AlgoSeason. </p>
+                                </div>
+
+                            </div>
+                            {% else %}
+                            <div style="box-shadow: 1px 1px 1px 2px teal; padding:40px 10px 40px 10px;">
+                                <i class="fas fa-sign-in-alt color_secondary"></i> <a class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'authentication:login' %}">Login or Sign up</a>
+
+                            </div>
+                            {% endif %}
+
+
+                            <!-- <hr style="border: 1px solid khaki; width:50% "> -->
+                        </div>
+
+                        <div class="model_style ">
+                            <i class="fas fa-chalkboard color_secondary "></i> <a data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'tutorial:getSyllabusCategoryAndSubCategory' %}">Syllabus</a>
+                        </div>
+
+                        <div class="model_style ">
+                            <i class="fas fa-chalkboard color_secondary "></i> <a data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'question:question_list' %}">Questions</a>
+                        </div>
+
+
+                        <div class="model_style ">
+                            <i class="fas fa-rupee-sign color_secondary "></i> <a data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'home:pricing' %}">Pricing</a>
+                        </div>
+
+                        <div class="model_style ">
+                            <i class="fas fa-id-card color_secondary "></i> <a data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'home:contact_us' %}">Contact Us</a>
+                        </div>
+
+                        <!-- <div *ngIf="current_user==n ull " class="model_style ">
+                          <i class="fas fa-sign-in-alt color_secondary "></i> <a routerLink="/login " data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block ">Login</a>
+                      </div> -->
+                        {% if user.is_authenticated %}
+                        <div class="model_style ">
+                            <i class="fas fa-user color_secondary "></i> <a data-dismiss="modal " class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'user_profile:user_profile' %}">Profile</a>
+                        </div>
+
+                        <div class="model_style">
+                            <i class="fas fa-sign-out-alt color_secondary"></i> <a class="nav-item nav-link color_primary_default_text inline_block" href="{% url 'authentication:logout' %}">Logout</a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <!-- <div class="modal-footer ">
+                  <button type="button " class="btn btn-secondary " data-dismiss="modal ">Close</button>
+              </div> -->
+            </div>
+        </div>
+    </div>
+</div>

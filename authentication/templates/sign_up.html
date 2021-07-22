@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %} {% block metadescription %}
+<!-- {{product.description|truncatewords:155}} -->
+{% endblock %} {% block title %} Sign up - algoseason {% endblock %} {% block content %}
+<div class="bg_color_primary" style="text-align: center;">
+    <div class="login_container">
+        <h3 style="color:white;">Sign Up</h3>
+        <form action="" method="post">
+            {% csrf_token%}
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label class="color_primary_default_text font_14 float_left" for="first_name">First Name:</label>
+                        <input type="text" style="border:1px solid #3a8084;" class="form-control bg_color_primary color_primary_default_text" id="first_name" placeholder="First Name" name="first_name">
+                    </div>
+
+
+                    <div class="col">
+                        <label class="color_primary_default_text font_14 float_left" for="last_name">Last Name:</label>
+                        <input type="text" style="border:1px solid #3a8084;" class="form-control bg_color_primary color_primary_default_text" id="last_name" placeholder="Last Name" name="last_name">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="color_primary_default_text font_14 float_left" for="email">E-mail Address:</label>
+                <input type="email" style="border:1px solid #3a8084;" class="form-control bg_color_primary color_primary_default_text" id="email" placeholder="Email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label class="color_primary_default_text font_14 float_left" for="password">Password:</label>
+                <input type="password" style="border:1px solid #3a8084;" class="form-control bg_color_primary color_primary_default_text" id="password" placeholder="Enter password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label class="color_primary_default_text font_14 float_left" for="confirm_password">Confirm Password:</label>
+                <input type="password" style="border:1px solid #3a8084;" class="form-control bg_color_primary color_primary_default_text" id="confirm_password" placeholder="Confirm password" name="confirm_password">
+            </div>
+
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+            <button style="width: 100%" type="submit" class="btn bg_color_secondary">Login</button>
+        </form>
+
+        <a href="" style="color: #3a8084">Forgot Password</a>
+        <div>
+            {% for message in messages %}
+            <p style="color:red">{{message}}
+                <p>
+                    {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock%}

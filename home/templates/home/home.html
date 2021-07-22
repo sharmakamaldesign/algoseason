@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% load static %}
+<!-- {% load staticfiles % }  -->
+{% block metadescription %} Welcome to AlgoSeason {% endblock %} {% block title%} Welcome - AlgoSeason {% endblock %} {% block content %}
+
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0">
+    <div class="container align_center color_primary_default_text">
+        <div>
+            <span class="heading_text">Welcome to </span><span class="heading_text color_secondary">AlgoSeason</span>
+            <!-- <h1 class="heading_text">AlgoSeason</h1> -->
+            <p>The <span class="color_secondary">Competitive Coding Art</span> club</p>
+        </div>
+        <div id="code_beauty">
+            <div id="box" style="display: inline-block;">
+                <div id="inner" class="text3d color_primary_default_text">FEEL</div>
+            </div>
+
+            <div id="box" style="display: inline-block;">
+                <div id="inner" class="text3d color_primary_default_text">THE</div>
+            </div>
+
+            <div id="box" style="display: inline-block;">
+                <div id="inner" class="text3d color_primary_default_text">BEAUTY</div>
+            </div>
+
+            <div id="box" style="display: inline-block;">
+                <div id="inner" class="text3d color_primary_default_text">OF</div>
+            </div>
+
+            <div id="box" style="display: inline-block;">
+                <div id="inner" class="text3d color_primary_default_text">CODE</div>
+            </div>
+        </div>
+    </div>
+    {% if not user.user_profile.is_subscribed %}
+    <div class="align_center" style="margin-top: 30px;">
+        <a class="btn btn_theme color_primary_default_text" href="{% url 'order:order_details' %}">Purchase</a>
+    </div>
+    {% endif %}
+</div>
+
+
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0 ">
+    <div class="container-fluid align_center color_primary_default_text ">
+        <div class="heading_text color_theme ">What is AlgoSeason</div>
+        <p style="font-size: 16px;" class="color_primary_default_text">AlgoSeason is a platform where you can learn coding skill. It is basically for those who want to start comopetitive programming coding. There are many Questions based on defficulty level or categories and also dedicated video lectures of Data
+            Structure and Algorithms. </p>
+        <!-- Questions -->
+        <a href="{% url 'question:question_list' %}">
+            <div class="feature_box align_center color_primary_default_text">
+                <i class=" fas fa-newspaper fa-2x "></i>
+                <p class=" feature_heading ">c++, Data Structure & Algorithm Course</p>
+                <p>You can walk from nothing to coding expert path with algoseason.</p>
+            </div>
+        </a>
+        <!-- DSA Crash Course -->
+        <div class="feature_box align_center color_primary_default_text ">
+            <i class=" fas fa-film fa-2x "></i>
+            <p class=" feature_heading ">Competitive Questions</p>
+            <p>Push yourself in Competitive Programming question solving environment.</p>
+        </div>
+        <!-- Healthy Coding Tips -->
+        <div class=" feature_box align_center color_primary_default_text ">
+            <i class=" fab fa-studiovinari fa-2x "></i>
+            <p class=" feature_heading ">Healthy Coding Tips</p>
+            <p>Know small tectics of solving problems that can improve you speed and accuracy.</p>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

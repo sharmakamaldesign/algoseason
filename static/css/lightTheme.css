@@ -1,0 +1,37 @@
+.color_primary {
+    color: #ffffff;
+}
+
+.color_primary_default_text {
+    color: #000000 !important;
+}
+
+.bg_color_primary {
+    background-color: #ffffff !important;
+}
+
+.bg_color_secondary {
+    background-color: #0e8888 !important;
+    /* background-color: #880e0e !important; */
+}
+
+.bg_color_white {
+    background-color: #ffffff;
+}
+
+.color_secondary {
+    color: #0e8888 !important;
+    /* color: #880e0e !important; */
+}
+
+.border-solid-opposit-color {
+    border: 1px solid #000000;
+}
+
+.question_hilight {
+    background-color: #f5f5f5;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding: 3px;
+    border-radius: 3px;
+}

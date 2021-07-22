@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} Question Details - algoeason {% endblock %} {% block content%}
+
+<hr class="bg_secondary_theme_color" style="width: 80%; margin:0;">
+<div class="jumbotron jumbotron-fluid bg_color_primary color_primary_default_text mb-0 pt-0 pb-0">
+    <div class="container-fluid">
+
+        <i style="margin-top: 10px;" class="fas fa-list fa-2x" matTooltip="Back to the Questions" matTooltipClass="example-tooltip-red" (click)="backToQuestions()"></i>
+        <div class="row" style="padding: 10px;">
+            <div class="cellContainer ">
+
+                <div class="question_box question_description_font">
+                    <p style="font-size: 25px;">{{question.name}}<span style="font-size: 12px;"> Category: {{question.category}} | Difficulty:{{question.difficulty}}</span></p>
+
+                    <p data-unselectable="unselectable content">{{question_description | safe | linebreaks}}</p>
+                </div>
+            </div>
+            <div class="cellContainer ">
+                <div class="code_box" style="text-align: center;">
+                    <form action="/action_page.php">
+                        <input type="file" id="myFile" name="filename">
+
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe class="embed-responsive-item " src="assets/videos/video1.mp4 " allowfullscreen></iframe>
+        </div> -->
+
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid bg_color_primary color_primary_default_text mb-0 ">
+    <div class="container-fluid align_center">
+        <p class="sub_heading_text ">Video Explanation</p>
+        <!-- <div class="embed-responsive embed-responsive-16by9 " style="width: 400px;height: 200px; ">
+            <iframe class="embed-responsive-item " src="assets/videos/video1.mp4 " allowfullscreen></iframe>
+        </div> -->
+        <div>
+            <video controls controlsList="nodownload" class="video_container">
+            <source src="{{question.video_file.url}}" type="video/mp4 ">
+            <source src="mov_bbb.ogg " type="video/ogg ">
+            Your browser does not support HTML video.
+          </video>
+        </div>
+    </div>
+</div>
+{% endblock %}

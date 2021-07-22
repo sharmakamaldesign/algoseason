@@ -1,0 +1,858 @@
+/* General Styles starts */
+
+
+/* .color_primary {
+    color: #000000;
+} */
+
+.color_success {
+    color: #228b22;
+}
+
+.color_danger {
+    color: #aa1313 !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+/* .bg_color_primary {
+    background-color: #000000 !important;
+}
+
+.bg_color_secondary {
+    background-color: #00caca !important;
+}
+
+.bg_color_white {
+    background-color: #ffffff;
+}
+*/
+
+.color_secondary {
+    color: #00caca !important;
+}
+
+.bg_color_success {
+    background-color: #228b22 !important;
+}
+
+.color_black {
+    color: #000000;
+}
+
+.align_center {
+    text-align: center;
+}
+
+.cursor_pointer:hover {
+    cursor: pointer !important;
+}
+
+.inline_block {
+    display: inline-block !important;
+}
+
+.float_left {
+    float: left;
+}
+
+.color_white {
+    color: #ffffff !important;
+}
+
+.font_14 {
+    font-size: 12px;
+}
+
+.heading_text {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn_theme {
+    border-color: #00caca !important;
+    color: #ffffff !important;
+}
+
+.btn_theme:hover {
+    background-color: #00caca;
+    color: #000000 !important;
+}
+
+
+/* General Styles Ends */
+
+
+/* tooltip css Starts----------------------------------------------------------------------- */
+
+.tooltip_manual {
+    position: relative;
+    display: inline- block;
+    /* border-bottom: 1px dotted black; */
+    /* If you want dots under the hoverable text */
+}
+
+
+/* Tooltip text */
+
+.tooltip_manual .tooltiptext {
+    line-height: 100%;
+    visibility: hidden;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px 5px;
+    font-weight: bold;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+/* Tooltip arrow */
+
+.tooltip_manual .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip_manual:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Tooltip css Ends */
+
+
+/* Snackbar styles starts */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+
+/* Snackbar styles Ends */
+
+
+/* Home style start */
+
+#box {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    box-shadow: 1px 1px 13px 1px #00caca;
+    transition: transform 5s;
+    line-height: 150px;
+    transform: rotateX(10deg) rotate(-10deg);
+}
+
+#box:hover {
+    transform: rotateY(0deg) rotate(360deg);
+}
+
+#inner {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+/*in mobile screen*/
+
+@media only screen and (max-width: 576px) {
+    #code_beauty {
+        display: none;
+    }
+}
+
+.feature_box {
+    border: 1px solid #0a1d0c;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    vertical-align: top;
+    transition: transform 2s;
+}
+
+.feature_box:hover {
+    border: 1px solid #0a1d0c;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 5px 10px 10px 4px #0a1d0c;
+    cursor: pointer;
+}
+
+.feature_heading {
+    font-size: 20px;
+    color: #00caca;
+    font-weight: 450;
+}
+
+
+/* Home Style end */
+
+
+/* Navbar style start */
+
+.nav_item_style {
+    margin: 0 20px 0 20px;
+}
+
+#tagline,
+.color_secondary_theme {
+    font-size: 14px;
+    padding-top: 5px;
+    color: class color_secondary_theme;
+    font-family: 'Lucida Sans';
+}
+
+@media only screen and (min-width: 768px) {
+    .nav_item_style {
+        margin-left: 30px;
+    }
+}
+
+.active {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.dropdown .dropdown-menu a:hover {
+    color: #fff;
+    background-color: #00caca;
+    border-color: #fff;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+
+/* for left sidebar in mobile */
+
+.modal.left .modal-dialog {
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content {
+    overflow-y: auto;
+}
+
+.modal.left.fade .modal-dialog {
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.show .modal-dialog {
+    left: 0;
+}
+
+
+/* ----- MODAL STYLE ----- */
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+    /* background-color: #000000; */
+}
+
+.modal-header {
+    border-bottom-color: #eeeeee;
+    background-color: #fafafa;
+}
+
+.model_style {
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+    background-color: black;
+}
+
+
+/* Navbar style ends */
+
+
+/* Pricing styles Starts */
+
+.price_box ul li {
+    margin: 10px;
+}
+
+.price_box ul li:before {
+    content: '✓ ';
+    color: #00caca;
+    font-size: 15px;
+}
+
+.price_box {
+    min-width: 300px;
+    max-width: 400px;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    box-shadow: 1px 1px 3px 1px teal;
+}
+
+
+/* Pricing styles Ends */
+
+
+/* order_details styles Starts */
+
+.order_details_box {
+    min-width: 300px;
+    max-width: 400px;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    box-shadow: 1px 1px 3px 1px teal;
+}
+
+#order-status-table tr td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+#order-status-table {
+    width: 50%;
+}
+
+@media only screen and (max-width: 576px) {
+    #order-status-table {
+        width: 100%;
+    }
+}
+
+
+/* order_details styles Ends */
+
+
+/* question styles starts */
+
+.questions_container {
+    width: 375px;
+    min-height: 30px;
+    display: inline-block;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+@media only screen and (max-width: 576px) {
+    .questions_container {
+        width: 100%;
+        min-height: 30px;
+        display: inline-block;
+        justify-content: center;
+        border: 1px solid white;
+        margin: 10px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        vertical-align: top;
+    }
+}
+
+.question_catetory {
+    width: 10px;
+    height: 50px;
+    float: left;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #228c22;
+}
+
+.questions_list {
+    margin-top: 20px;
+    margin-bottom: 3px;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 1px 1px 2px 1px #00caca;
+    border-radius: 10px;
+}
+
+.questions_list:hover {
+    cursor: pointer;
+}
+
+.question_text {
+    display: inline-block;
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 17px;
+    text-align: left;
+}
+
+.question_status {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: green;
+    border: 0.5px solid green;
+    box-shadow: 0px 0px 7px black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    margin: 7px;
+}
+
+
+/* question styles ends */
+
+
+/* question_details styles starts--------------------------------- */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: teal;
+    /* border-radius: 7px; */
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: teal;
+}
+
+.question_box {
+    height: 400px;
+    overflow: auto;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 1px 1px 3px 1px #00caca;
+    /* unselectable css */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.code_box {
+    height: 400px;
+    overflow: auto;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 1px 1px 3px 1px #00caca;
+}
+
+.question_description_font {
+    font-family: serif;
+    font-size: 16px;
+}
+
+.flex_container {
+    display: flex;
+}
+
+.flex_child {
+    flex: 1;
+    border: 2px solid yellow;
+}
+
+.flex_child:first-child {
+    margin-right: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.cellContainer {
+    width: 50%;
+    float: left;
+}
+
+.example-button {
+    margin-top: 16px;
+}
+
+.example-tooltip-red {}
+
+.sample_input {
+    background-color: #004d4d;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.sample_output {
+    background-color: #004d4d;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.output_comment {
+    color: #969696;
+}
+
+.video_container {
+    border: 2px solid #00caca;
+    width: 400px;
+}
+
+@media only screen and (max-width:576px) {
+    .cellContainer {
+        width: 100%;
+        float: left;
+    }
+    .video_container {
+        width: 300px;
+    }
+}
+
+
+/* question_details styles ends------------------------------------- */
+
+
+/* contact_us styles starts -------------------------------------------- */
+
+.contact_us_box_container {
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    border: 1px solid #004b4b;
+    box-shadow: 1px 1px 3px 1px black;
+    margin: 10px;
+}
+
+.contact-us-box-container-back-side {
+    width: 400px;
+    font-size: 35px;
+    height: 200px;
+    display: inline-block;
+    background-color: #004b4b;
+    /* line-height: 200px; */
+    box-shadow: 1px 1px 3px 1px black;
+    margin: 10px;
+    position: relative;
+}
+
+.inner_contact_us_box_container {
+    display: table-cell;
+    vertical-align: middle;
+    height: 200px;
+    text-align: center;
+}
+
+.contact-us-company-name {
+    line-height: 200px;
+}
+
+@media only screen and (max-width:576px) {
+    .contact-us-box-container-back-side {
+        width: 300px;
+        height: 150px;
+        /* line-height: 150px; */
+    }
+    .contact_us_box_container {
+        width: 300px;
+        height: 150px;
+    }
+    .inner_contact_us_box_container {
+        display: table-cell;
+        vertical-align: middle;
+        height: 150px;
+        text-align: center;
+    }
+    .contact-us-company-name {
+        line-height: 150px;
+    }
+}
+
+
+/* contact_us styles ends---------------------------------------------- */
+
+
+/* login styles starts---------------------------------------------- */
+
+.login_container {
+    padding: 10px;
+    width: 400px;
+    display: inline-block;
+    /* background-color: rgba(4, 4, 4, 0.7); */
+}
+
+@media only screen and (max-width: 576px) {
+    .login_container {
+        padding: 10px;
+        width: 100%;
+        display: inline-block;
+        background-color: rgba(4, 4, 4, 0.7);
+    }
+}
+
+
+/* login styles ends---------------------------------------------- */
+
+
+/* tutorial styles starts---------------------------------------------- */
+
+.syllabus_item_container {
+    width: 100%;
+    min-height: 30px;
+    display: inline-block;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    vertical-align: top;
+}
+
+.syllabus_item {
+    height: 50px;
+    padding-left: 5px;
+    line-height: 50px;
+}
+
+.syllabus_item:hover {
+    background-color: #183333;
+    cursor: pointer;
+}
+
+.syllabus_video {
+    width: 90%;
+    border: 1px solid #00caca;
+}
+
+@media only screen and (max-width: 576px) {
+    .syllabus_video {
+        width: 300px;
+    }
+}
+
+.syllabus-video-container {
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+}
+
+.playlist-container-outer {
+    display: inline-block;
+    width: 29%;
+    vertical-align: top;
+}
+
+.playlist-container {
+    vertical-align: top;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+    .playlist-container {
+        display: block;
+        width: 100%;
+    }
+    .playlist-container-outer {
+        width: 100%;
+    }
+    .syllabus-video-container {
+        width: 100%;
+    }
+}
+
+.playlist-item {
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px 15px 15px 15px;
+    height: 50px;
+    vertical-align: middle;
+    margin-top: 5px;
+    text-align: left;
+    color: white !important;
+    /* box-shadow: 5px 10px 8px 10px #888888; */
+}
+
+.playlist-item:hover {
+    cursor: pointer;
+}
+
+
+/* tutorial styles ends---------------------------------------------- */
+
+
+/*--------------Compiler Starts ---------------------------*/
+
+.correct-answer {
+    padding: 20px 5px 20px 5px;
+    text-align: center;
+    box-shadow: 0px 0px 15px 0px green;
+    margin: 5px 5px 5px 5px;
+}
+
+.wrong-answer {
+    padding: 20px 5px 20px 5px;
+    text-align: center;
+    box-shadow: 0px 0px 15px 0px red;
+    margin: 5px 5px 5px 5px;
+}
+
+
+/* Spiner  */
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.8) url("loader.gif") center no-repeat;
+}
+
+
+/* Turn off scrollbar when body element has the loading class */
+
+body.loading {
+    overflow: hidden;
+}
+
+
+/* Make spinner image visible when body element has the loading class */
+
+body.loading .overlay {
+    display: block;
+}
+
+
+/*--------------Compiler Ends ---------------------------*/

@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} Order Status - algoeason {% endblock %} {% block content%}
+<script>
+</script>
+<div class="jumbotron jumbotron-fluid bg_color_primary mb-0 align_center color_primary_default_text">
+    <div class="container-fluid">
+
+        <h1>Order Status</h1>
+        <table id="order-status-table" style="margin: auto;">
+            <!-- <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr> -->
+            <tr>
+                <td>Payment Status</td>
+                {% if response_dict.RESPCODE == '01' %}
+                <td style="color: green;">Success</td>
+                {% else %}
+                <td style="color: red;">Failed</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Order ID</td>
+                <td>{{response_dict.ORDERID}}</td>
+            </tr>
+            <tr>
+                <td>Txn ID</td>
+                <td>{{response_dict.BANKTXNID}}</td>
+            </tr>
+
+            <tr>
+                <td>Txn Amount</td>
+                <td>{{response_dict.TXNAMOUNT}}</td>
+            </tr>
+        </table>
+        <a class="btn bg_color_secondary" style="margin: 10px;" href="{% url 'home:home' %}">Back to Home</a>
+
+        <a style="float: right; margin: 10px; color: blue;" class="cursor_pointer" onclick="window.print()">print</a>
+
+
+
+    </div>
+</div>
+{% endblock %}

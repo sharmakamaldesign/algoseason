@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% load static %} {% block metadescription%} {% endblock %} {% block title %} Questions - algoeason {% endblock %} {% block content%}
+
+<div class="jumbotron jumbotron-fluid mb-0 bg_color_primary color_primary_default_text">
+    <div class="container-fluid" ;>
+        <h1 style="text-align: center;" class="heading_text">Questions</h1>
+        <div style="clear:both">
+
+            <div class="questions_container border-solid-opposit-color">
+                <p class="heading_text ">Easy</p>
+                {% if not user.user_profile.is_subscribed %} {% for question in questions %}
+                <div class="questions_list tooltip_manual">
+                    <a class="color_primary_default_text ">
+                        <div class="question_catetory "></div>
+                        <div class="question_text ">{{question.name}}</div>
+                        <i class="fas fa-lock " style="color: red; "></i>
+                    </a>
+                    <span class="tooltiptext ">Purchase AlgoSeason</span>
+                </div>
+                {% endfor %} {% else %} {% for question in questions %}
+                <div class="questions_list ">
+                    <a class="color_primary_default_text " href="{{question.get_url}} ">
+                        <div class="question_catetory "></div>
+                        <div class="question_text ">{{question.name}}</div>
+                        <i class="fas fa-lock-open " style="color: green; "></i>
+                    </a>
+                </div>
+                {% endfor %} {% endif %}
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

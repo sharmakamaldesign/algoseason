@@ -1,0 +1,27 @@
+.color_primary {
+    color: #ffffff;
+}
+
+.color_primary_default_text {
+    color: #000000 !important;
+}
+
+.bg_color_primary {
+    background-color: #ffffff !important;
+}
+
+.bg_color_secondary {
+    background-color: #0e8888 !important;
+}
+
+.bg_color_white {
+    background-color: #ffffff;
+}
+
+.color_secondary {
+    color: #0e8888 !important;
+}
+
+.border-solid-opposit-color {
+    border: 1px solid #000000;
+}
